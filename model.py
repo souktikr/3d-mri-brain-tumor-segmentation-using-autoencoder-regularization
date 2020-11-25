@@ -140,7 +140,7 @@ def loss_gt(e=1e-8):
         intersection = K.sum(K.abs(y_true * y_pred), axis=[-3,-2,-1])
         dn = K.sum(K.square(y_true) + K.square(y_pred), axis=[-3,-2,-1]) + e
         
-        return - K.mean(2 * intersection / dn, axis=[0,1])
+        return K.mean(2 * intersection / dn, axis=[0,1])
     
     return loss_gt_
 
